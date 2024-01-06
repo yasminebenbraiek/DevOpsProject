@@ -1,0 +1,16 @@
+version: '3'
+services:
+  audiovisual:
+    build: ./audiovisual-microservice
+    ports:
+      - "50053:50053"
+
+  book:
+    build: ./book-microservice
+    ports:
+      - "50051:50051"
+
+  magazine:
+    build: ./magazine-microservice
+    ports:
+      - "50052:50052"
