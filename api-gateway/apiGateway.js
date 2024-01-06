@@ -10,8 +10,8 @@ const bookProtoPath = 'book.proto';
 const magazineProtoPath = 'magazine.proto';
 const audiovisualProtoPath = 'audiovisual.proto';
 
-const resolvers = require('../resolvers');
-const typeDefs = require('../schema');
+const resolvers = require('./resolvers');
+const typeDefs = require('./schema');
 
 const app = express();
 app.use(cors());

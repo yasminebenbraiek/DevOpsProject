@@ -1,6 +1,6 @@
 const grpc = require('@grpc/grpc-js');
 const protoLoader = require('@grpc/proto-loader');
-const { Book } = require('../models');
+const { Book } = require('./models');
 
 const bookProtoPath = 'book.proto';
 const bookProtoDefinition = protoLoader.loadSync(bookProtoPath, {

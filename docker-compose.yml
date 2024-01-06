@@ -1,16 +1,29 @@
 version: '3'
 services:
   audiovisual:
-    build: ./audiovisual-microservice
+    build:
+      context: ./audiovisual-microservice
+      dockerfile: Dockerfile
     ports:
       - "50053:50053"
 
   book:
-    build: ./book-microservice
+    build:
+      context: ./book-microservice
+      dockerfile: Dockerfile
     ports:
       - "50051:50051"
 
   magazine:
-    build: ./magazine-microservice
+    build:
+      context: ./magazine-microservice
+      dockerfile: Dockerfile
     ports:
       - "50052:50052"
+
+  apigateway:
+    build:
+      context: ./api-gateway
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"

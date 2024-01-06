@@ -1,6 +1,6 @@
 const grpc = require('@grpc/grpc-js');
 const protoLoader = require('@grpc/proto-loader');
-const { Magazine } = require('../models');
+const { Magazine } = require('./models');
 
 const magazineProtoPath = 'magazine.proto';
 const magazineProtoDefinition = protoLoader.loadSync(magazineProtoPath, {

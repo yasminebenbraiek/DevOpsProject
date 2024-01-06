@@ -1,6 +1,6 @@
 const grpc = require('@grpc/grpc-js');
 const protoLoader = require('@grpc/proto-loader');
-const { Audiovisual } = require('../models');
+const { Audiovisual } = require('./models');
 
 const audiovisualProtoPath = 'audiovisual.proto';
 const audiovisualProtoDefinition = protoLoader.loadSync(audiovisualProtoPath, {
