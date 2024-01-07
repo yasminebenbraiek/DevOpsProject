@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: audiovisual-microservice-deployment
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: audiovisual-microservice
+  template:
+    metadata:
+      labels:
+        app: audiovisual-microservice
+    spec:
+      containers:
+        - name: audiovisual-microservice-container
+          image: yasminebenbraiek/audiovisual-microservice:1.0
+          ports:
+            - containerPort: 50053

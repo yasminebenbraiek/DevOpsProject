@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: magazine-microservice-deployment
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: magazine-microservice
+  template:
+    metadata:
+      labels:
+        app: magazine-microservice
+    spec:
+      containers:
+        - name: magazine-microservice-container
+          image: yasminebenbraiek/magazine-microservice:1.0
+          ports:
+            - containerPort: 50052

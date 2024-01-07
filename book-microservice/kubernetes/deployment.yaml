@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: book-microservice-deployment
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: book-microservice
+  template:
+    metadata:
+      labels:
+        app: book-microservice
+    spec:
+      containers:
+        - name: book-microservice-container
+          image: yasminebenbraiek/book-microservice:1.0
+          ports:
+            - containerPort: 50051
