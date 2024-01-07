@@ -14,7 +14,7 @@ pipeline {
         stage('Init') {
             agent any
             steps {
-                bat 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
+                sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
             }
         }
 
@@ -22,9 +22,9 @@ pipeline {
             agent any
             steps {
                 dir('api-gateway') {
-                    bat 'docker build -t $DOCKERHUB_CREDENTIALS_USR/api-gateway:$BUILD_ID .'
-                    bat 'docker push $DOCKERHUB_CREDENTIALS_USR/api-gateway:$BUILD_ID'
-                    bat 'docker rmi $DOCKERHUB_CREDENTIALS_USR/api-gateway:$BUILD_ID'
+                    sh 'docker build -t $DOCKERHUB_CREDENTIALS_USR/api-gateway:$BUILD_ID .'
+                    sh 'docker push $DOCKERHUB_CREDENTIALS_USR/api-gateway:$BUILD_ID'
+                    sh 'docker rmi $DOCKERHUB_CREDENTIALS_USR/api-gateway:$BUILD_ID'
                 }
             }
         }
@@ -33,9 +33,9 @@ pipeline {
             agent any
             steps {
                 dir('book-microservice') {
-                    bat 'docker build -t $DOCKERHUB_CREDENTIALS_USR/book-microservice:$BUILD_ID .'
-                    bat 'docker push $DOCKERHUB_CREDENTIALS_USR/book-microservice:$BUILD_ID'
-                    bat 'docker rmi $DOCKERHUB_CREDENTIALS_USR/book-microservice:$BUILD_ID'
+                    sh 'docker build -t $DOCKERHUB_CREDENTIALS_USR/book-microservice:$BUILD_ID .'
+                    sh 'docker push $DOCKERHUB_CREDENTIALS_USR/book-microservice:$BUILD_ID'
+                    sh 'docker rmi $DOCKERHUB_CREDENTIALS_USR/book-microservice:$BUILD_ID'
                 }
             }
         }
@@ -44,9 +44,9 @@ pipeline {
             agent any
             steps {
                 dir('magazine-microservice') {
-                    bat 'docker build -t $DOCKERHUB_CREDENTIALS_USR/magazine-microservice:$BUILD_ID .'
-                    bat 'docker push $DOCKERHUB_CREDENTIALS_USR/magazine-microservice:$BUILD_ID'
-                    bat 'docker rmi $DOCKERHUB_CREDENTIALS_USR/magazine-microservice:$BUILD_ID'
+                    sh 'docker build -t $DOCKERHUB_CREDENTIALS_USR/magazine-microservice:$BUILD_ID .'
+                    sh 'docker push $DOCKERHUB_CREDENTIALS_USR/magazine-microservice:$BUILD_ID'
+                    sh 'docker rmi $DOCKERHUB_CREDENTIALS_USR/magazine-microservice:$BUILD_ID'
                 }
             }
         }
@@ -55,9 +55,9 @@ pipeline {
             agent any
             steps {
                 dir('audiovisual-microservice') {
-                    bat 'docker build -t $DOCKERHUB_CREDENTIALS_USR/audiovisual-microservice:$BUILD_ID .'
-                    bat 'docker push $DOCKERHUB_CREDENTIALS_USR/audiovisual-microservice:$BUILD_ID'
-                    bat 'docker rmi $DOCKERHUB_CREDENTIALS_USR/audiovisual-microservice:$BUILD_ID'
+                    sh 'docker build -t $DOCKERHUB_CREDENTIALS_USR/audiovisual-microservice:$BUILD_ID .'
+                    sh 'docker push $DOCKERHUB_CREDENTIALS_USR/audiovisual-microservice:$BUILD_ID'
+                    sh 'docker rmi $DOCKERHUB_CREDENTIALS_USR/audiovisual-microservice:$BUILD_ID'
                 }
             }
         }
@@ -65,7 +65,7 @@ pipeline {
         stage('Logout') {
             agent any
             steps {
-                bat 'docker logout'
+                sh 'docker logout'
             }
         }
     }
